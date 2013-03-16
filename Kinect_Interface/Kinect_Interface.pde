@@ -33,7 +33,7 @@ void draw()
 	if (photoVal < 500)
 	{
 		image (kinect.rgbImage(), 0, 0);
-	{
+	}
 	
 	else
 	{
