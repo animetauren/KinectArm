@@ -21,25 +21,36 @@ void setup()
         pinkyServo.attach(6);
         
         Serial.begin(9600);
-        Serial.println("Ready!");
+        Serial.println("Ready");
 }
 
 void loop()
 {
-	sensorValue = analogRead(sensorPin);
-	Serial.println(sensorValue);
-	delay(10);
-
-	if (Serial.available()>2)
-	{
-		val = Serial.read();
-		if (val =='S')
-		{
-			xVal = Serial.read();
-			yVal = Serial.read();
-		}
-	}
-	
-	analogWrite(10, xVal);
-	analogWrite(11, yVal);
+static int v = 0;
+ 
+ 
+  if ( Serial.available()) {
+    char ch = Serial.read();
+ 
+ 
+    switch(ch) {
+      case '0'...'9':
+        v = v*10 + (int)(ch - '0');
+        break;
+      case 's':
+        thumbServo.write(v);
+        v = 0;
+        break;
+      case 'w':
+        finger2Servo.write(v);
+        v = 0;
+        break;
+      case 'd':
+        finger2Servo.detach();
+        break;
+      case 'a':
+        finger2Servo.attach(15);
+        break;
+    }
+  }
 }
