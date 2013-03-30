@@ -1,4 +1,4 @@
-<a href="https://animetauren.github.com/KinectArm/" target="_blank">KinectArm</a>
+<a href="http://animetauren.github.com/KinectArm/" target="_blank">KinectArm</a>
 =========
 
 Interfacing an XBOX Kinect with an Arduino Uno to track hand and finger movements and to translate this into a robotic arm and hands.
