@@ -2,11 +2,44 @@
 <HTML>
 
 <Head>
-title="KinectArm"
+<title>KinectArm</title>
 <link rel="stylesheet" href="main.css" type="text/css" media="all">
 </Head>
 
-<h1 align="center">KinectArm</h1>
+<h1 align="center">Kinect Arm</h1>
 
+<div id="wrapper" style="width:100%; text-align:center">
+<img src="kinect-xl.jpg" align="center">
+</div>
+
+<canvas id="myDrawing" width="200" height="200">
+<p>Your browser doesn't support canvas.</p>
+</canvas>
+
+<script>
+var drawingCanvas = document.getElementById('myDrawing');
+// Check the element is in the DOM and the browser supports canvas
+if(drawingCanvas.getContext) {
+// Initaliase a 2-dimensional drawing context
+var context = drawingCanvas.getContext('2d');
+//Canvas commands go here
+// Create the yellow face
+context.strokeStyle = "#000000";
+context.fillStyle = "#FFFF00";
+context.beginPath();
+context.arc(100,100,50,0,Math.PI*2,true);
+context.closePath();
+context.stroke();
+context.fill();
+}
+</script>
+
+<footer>
+<p align="center">
+Built by the <a href="http://web.njit.edu/~hr28/" target="blank">anmtrn</a>
+<br/>
+Last Updated: March 31, 2013
+</p>
+</footer>
 
 </HTML>
