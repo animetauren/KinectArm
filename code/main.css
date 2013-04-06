@@ -1,0 +1,104 @@
+body {
+    background: url(../images/body-background.png) repeat scroll 0 0 transparent;
+    font-family: "Helvetica Neue", Helvetica, Arial, Sans-serif;
+}
+
+#wrapper{
+	width: 980px;
+	height: 120px;
+	margin: 2em auto;
+}
+
+#logo {
+  height: 103px;
+  padding: 0 0 14px;
+  border-bottom: 3px solid #dcdcd5;
+}
+
+#logo > a {
+  position: absolute;
+  margin-left: 397px;
+  z-index: 2;
+  width: 186px;
+}
+
+
+#logo > p {
+  position: relative;
+  color: #9c8d6c;
+  letter-spacing: .07em;
+  margin: 0;
+}
+
+#logo > p > b {
+  position: absolute;
+  top: 7px;
+  right: 0;
+  padding: 34px 0 0;
+  height: 56px;
+  width: 326px;
+  border: dashed #dcdcd5;
+  border-width: 0 0 0 1px;
+  text-align: center;
+  font: 1.1em/1 "SabonNextW01-DisplayIta", serif;
+}
+
+#logo > p > b:first-child {
+  right: auto;
+  left: 0;
+  border-width: 0 1px 0 0;
+  width: 327px;
+}
+
+#logo > a > img {
+  width: 100%;
+}
+
+#logo > p > span {
+  position: absolute;
+  left: -9999px;
+}
+
+.menu{
+margin: 0 24em;
+font-family:Arial, Helvetica, sans-serif;
+font-size:12px;
+font-weight: bold;
+text-transform: uppercase;
+text-align: center;
+width:100%;
+}
+
+.menu ul{
+list-style:none;
+/* margin:0; */
+padding:0;
+}
+
+.menu li{
+display:inline-block;
+float:left;
+}
+
+.menu li:first-child{
+margin-left:5px;
+}
+
+.menu a{
+display:block;
+padding:10px;
+text-decoration:none;
+color:#2d2d2d; /*text color */
+border-top:2px solid transparent;
+}
+
+.menu a:hover,
+.menu li.active a{
+/*background:#3d3d3d;*/
+color:#dddddd;
+border-top:2px solid #000;
+}
+
+.clearFloat{
+clear:both;
+}
