@@ -1,10 +1,13 @@
 <!DOCTYPE HTML>
 <HTML>
 
-<Head>
+<head>
 <title>KinectArm</title>
 <link rel="stylesheet" href="../KinectArm/code/main.css" type="text/css" media="all">
-</Head>
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js" type="text/javascript"></script>
+    <script src="../KinectArm/code/jquery.carouFredSel-6.2.0-packed.js" type="text/javascript"></script>
+    <script src="../KinectArm/code/slider.js" type="text/javascript"></script>
+</head>
 
 <div id="wrapper">
 
@@ -15,28 +18,53 @@
       
   <div class="menu">
       <ul>
-          <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="#">Home</a></li>
             <li><a href="../KinectArm/about">About</a></li>
             <li><a href="../KinectArm/images">Gallery</a></li>
             <li><a href="../KinectArm/updates">Progress??</a></li>
             <li><a href="../KinectArm/code">code</a></li>
             <li><a href="../KinectArm/random">random</a></li>
             <div class="clearFloat"></div>
-        </ul>
-    </div>
+      </ul>
+  </div>
 
 </div>
 
-</br>
-</br>
+    <div id="content_wrapper">
+      <div id="slider">
+  
+        <div class="slide" style="background-image: url(../KinectArm/images/kinect.jpg);">
+          <div class="slide-block">
+            <h4>Kinect</h4>
+            <p>Released in 2010 the Xbox Kinect became a sensation with user and deverlopers everywhere as they saw the potential of a 3D scanner and camera.</p>
+          </div>
+        </div>
+    
+        <div class="slide" style="background-image: url(../KinectArm/images/3dprinter.jpg);">
+          <div class="slide-block">
+            <h4>3D Printer</h4>
+            <p>3D printing started as a technology too pricey for average folk, later as the price dropped and printers became more affordable hobbyists and students began to see the true potential of 3D printers.</p>
+          </div>
+        </div>
+    
+        <div class="slide" style="background-image: url(../KinectArm/images/robotarm.jpg);">
+          <div class="slide-block">
+            <h4>Kinect Arm</h4>
+            <p>The Kinect Arm began as a Senior project by three students in a quest to create a robotic arm that can mimic human motion being captured by a Kinect.</p>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+
 </br>
 
-<footer>
-<p align="center">
-Built by the <a href="http://web.njit.edu/~hr28/" target="blank">anmtrn</a>
-<br/>
-Last Updated: March 31, 2013
+
+<div id="footer">
+<p>
+Built by the <a href="http://web.njit.edu/~hr28/" target="blank">anmtrn</a></p>
+<p>Last Updated: April 7, 2013
 </p>
-</footer>
+</div>
 
 </HTML>

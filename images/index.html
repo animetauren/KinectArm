@@ -1,10 +1,28 @@
 <!DOCTYPE HTML>
 <HTML>
 
-<Head>
+<head>
 <title>KinectArm</title>
+  <meta name="author" content="Henry Robalino">
 <link rel="stylesheet" href="../code/main.css" type="text/css" media="all">
-</Head>
+  <link rel="stylesheet" type="text/css" media="all" href="../code/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="../code/jquery.lightbox-0.5.css">
+  <link rel="stylesheet" type="text/css" media="all" href="http://fonts.googleapis.com/css?family=Lato|Skranji:700">
+  <script type="text/javascript" charset="utf-8" src="../code/jquery-1.9.1.min.js"></script>
+  <script type="text/javascript" charset="utf-8" src="../code/jquery.lightbox-0.5.min.js"></script>
+  <script type="text/javascript">
+$(function(){
+  $('a[rel=lightbox]').lightBox({
+    containerResizeSpeed: 250,
+    fixedNavigation: true
+  });
+  $('a[rel=2ndlightbox]').lightBox({
+    overlayBgColor: '#fff',
+    overlayOpacity: 0.7
+  });
+});
+</script>
+</head>
 
 
 <div id="wrapper">
@@ -25,19 +43,47 @@
             <div class="clearFloat"></div>
         </ul>
     </div>
+<!--     <div id="images_wrapper"> -->
+    <div id="content">
+      <h1>Gallery</h1>
+      
+      <div class="photos">
+        <ul class="clearfix">
+          <!-- ATTRIBUTION: http://dribbble.com/shots/963800-New-App-design -->
+          <li><a href="../images/photos/01-app-design-iphone.png" rel="lightbox" title="image 1"><img src="../images/photos/01-app-design-iphone-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/963671-Navigation -->
+          <li><a href="../images/photos/02-ios-side-navigation.png" rel="lightbox" title="image 1"><img src="../images/photos/02-ios-side-navigation-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/962966-Share -->
+          <li><a href="../images/photos/03-share-buttons-ios.png" rel="lightbox" title="image 1"><img src="../images/photos/03-share-buttons-ios-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/961333-Profile-Screen-WIP -->
+          <li><a href="../images/photos/04-profile-screen-iphone.png" rel="lightbox" title="image 1"><img src="../images/photos/04-profile-screen-iphone-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/961314-Chat-IOS-App -->
+          <li><a href="../images/photos/05-iphone-chat-app.png" rel="lightbox" title="image 1"><img src="../images/photos/05-iphone-chat-app-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/958102-Traveler-3-0-Favorites -->
+          <li><a href="../images/photos/06-traveler-iphone-app-white.png" rel="lightbox" title="image 1"><img src="../images/photos/06-traveler-iphone-app-white-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/960585-Twitter-Client-UI-Design -->
+          <li><a href="../images/photos/07-twitter-client-dark.png" rel="lightbox" title="image 1"><img src="../images/photos/07-twitter-client-dark-thumb.png" width="150" height="150"></a></li>
+          
+          <!-- ATTRIBUTION: http://dribbble.com/shots/957175-Share-Section -->
+          <li><a href="../images/photos/08-iphone-share-app.png" rel="lightbox" title="image 1"><img src="../images/photos/08-iphone-share-app-thumb.png" width="150" height="150"></a></li>
+        </ul>
+      </div>
+     </div> 
+ </div>
+<!-- </div>
+ -->
 
-</div>
-
-</br>
-</br>
-</br>
-
-<footer>
-<p align="center">
-Built by the <a href="http://web.njit.edu/~hr28/" target="blank">anmtrn</a>
-<br/>
-Last Updated: March 31, 2013
+<div id="footer_images">
+<p>
+Built by the <a href="http://web.njit.edu/~hr28/" target="blank">anmtrn</a></p>
+<p>Last Updated: April 7, 2013
 </p>
-</footer>
+</div>
 
 </HTML>
