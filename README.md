@@ -1,4 +1,4 @@
-KinectArm
+<a href="http://animetauren.github.io/KinectArm/">KinectArm</a>
 =========
 
 Interfacing an XBOX Kinect with an Arduino Uno to track hand and finger movements and to translate this into a robotic arm and hands.
@@ -9,6 +9,6 @@ A senior project of Henry Robalino, Harsh Mehta, Timothy Tham.
 
 Credits: <a href="http://inmoov.blogspot.com" target="_blank">hairygael</a>
          <a href="http://openni.org" target="_blank">OpenNI</a>
-	 <a href="http://makematics.com/code/FingerTracker/" target="_blank" > fingerTracker</a>
+	 <a href="http://makematics.com/code/FingerTracker/" target="_blank" > FingerTracker</a>
 	 <a href="http://web.njit.edu/~friendlan/" target="_blank">Professor Friedland</a>
 	 <a href="http://web.njit.edu/~mcdermot/" target="_blank">Dr.McDermott</a>
