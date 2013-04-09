@@ -3,6 +3,7 @@ import processing.serial.*;
 import fingertracker.*;
 FingerTracker fingers;
 SimpleOpenNI kinect;
+//Ni must be capital
 Serial myPort;
 
 // set a default threshold distance:
