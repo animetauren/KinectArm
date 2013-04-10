@@ -104,10 +104,10 @@ for (int i=1;i<fingerPositions.size();i++){
     fill(255, 0, 0);
     ellipse(lastX, lastY, 15, 15);
    
-   //The part below kills the camera!! 
-    //spos= lastX/4;       // Calculate the servo position from lastX 
-   // x= int(lastX);
-   //println (x);
+   spos= lastX/4;       // Calculate the servo position from lastX 
+   x= int(lastX);
+   println (x);
+      //The part below kills the camera!!
    //myPort.write("s"+spos);    // Output the Servo Positions from 0 to 180
    //kinect.converRealWorldToProjective(handVec, mapHandVec);
 
