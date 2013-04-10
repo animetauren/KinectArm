@@ -31,11 +31,13 @@ PVector currentLocFinger;
 PVector prevLocFinger;
 void setup() {
 
-  size(640, 480);
+   // initialize your SimpleOpenNI object
+  // and set it up to access the depth image
   kinect = new SimpleOpenNI(this);
   kinect.enableDepth();
+  // mirror the depth image so that it is more natural
   kinect.setMirror(true);
-
+  
   // initialize the FingerTracker object
   // with the height and width of the Kinect
   // depth image
@@ -58,13 +60,15 @@ void setup() {
   String portName = Serial.list()[0];
   myPort = new Serial(this, portName, 9600);
   myPort.bufferUntil('\n');
+  
+  size(640, 480);
 }
 
-void draw()
-{
+void draw(){
   kinect.update();
   PImage depthImage = kinect.depthImage();
   image(depthImage, 0, 0);
+  
   fingers.setThreshold(threshold);
   int[] depthMap = kinect.depthMap();
   fingers.update(depthMap);
@@ -79,8 +83,7 @@ void draw()
     ellipse(position.x - 5, position.y -5, 10, 10);
   }
 
-  for (int i=1;i<fingerPositions.size();i++)
-  {
+for (int i=1;i<fingerPositions.size();i++){
     currentLocFinger = fingerPositions.get(i);
     prevLocFinger = fingerPositions.get(i-1);
 
@@ -96,16 +99,18 @@ void draw()
     lastY = int(interpolatedY);
     x= int(lastX);
     y= int(lastY);
-  }
+    }
 
-  fill(255, 0, 0);
-  ellipse(lastX, lastY, 15, 15); 
+    fill(255, 0, 0);
+    ellipse(lastX, lastY, 15, 15);
+   
+   //The part below kills the camera!! 
+    //spos= lastX/4;       // Calculate the servo position from lastX 
+   // x= int(lastX);
+   //println (x);
+   //myPort.write("s"+spos);    // Output the Servo Positions from 0 to 180
+   //kinect.converRealWorldToProjective(handVec, mapHandVec);
 
-  spos= lastX/4;       // Calculate the servo position from lastX 
-  x= int(lastX);
-  println (x);
-  myPort.write("s"+spos);    // Output the Servo Positions from 0 to 180
-  //kinect.converRealWorldToProjective(handVec, mapHandVec);
 }
 
 void onCreateFingers(int handId, PVector position, float time) {
@@ -117,4 +122,5 @@ void onUpdateFingers(int handId, PVector position, float time) {
   kinect.convertRealWorldToProjective(position, position);
   fingerPositions.add(position);
 }
+
 
