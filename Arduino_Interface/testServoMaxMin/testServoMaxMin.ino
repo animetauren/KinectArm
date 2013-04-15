@@ -3,7 +3,7 @@
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
-#define SERVOMAX  600 // this is the 'maximum' pulse length count (out of 4096)
+#define SERVOMAX  625 // this is the 'maximum' pulse length count (out of 4096)
 
 uint8_t thumbServo = 0;  //thumb servo
 void setup(){
@@ -35,5 +35,5 @@ void loop() {
   delay(500);
 
   thumbServo ++;
-  if (thumbServo > 15) thumbServo = 0;
+  if (thumbServo > 0) thumbServo = 0;
 }
