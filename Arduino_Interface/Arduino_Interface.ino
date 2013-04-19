@@ -3,7 +3,7 @@
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
-#define SERVOMAX  600 // this is the 'maximum' pulse length count (out of 4096)
+#define SERVOMAX  625 // this is the 'maximum' pulse length count (out of 4096)
 #define addr 0x00
 
 uint8_t thumbServo = 0;  //thumb servo
@@ -28,31 +28,30 @@ void loop()
 {
 static int v = 0;
  
+ uint16_t pulseInput;
  
   if ( Serial.available()) {
-    Wire.begin();
-    Wire.beginTransmission(addr);
-    ch = Wire.read();
-    Wire.endTransmission();
-    
+     ch = Wire.read();
+   
      switch(ch) {
       case '0'...'9':
         v = v*10 + (int)(ch - '0');
         break;
       case 's':
-        Wire.write(0x01); //0x01 would be thumbServo
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        for(uint16_t pulseStart = 0; pulseStart < pulseInput; pulseStart++){
+          pwm.setPWM(thumbServo, 0, pulseStart);
+        }
         v = 0;
         break;
       case 'w':
-        Wire.write(0x02); // 0x02 would be finger2Servo 
+       pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        for(uint16_t pulseStart = 0; pulseStart < pulseInput; pulseStart++){
+          pwm.setPWM(finger2Servo, 0, pulseStart);
+        }
         v = 0;
         break;
-      case 'd':
-        Wire.endTransmission();
-        break;
-      case 'a':
-      Wire.beginTransmission(0x02); //
-        break;
+
       }
     }
  } 
