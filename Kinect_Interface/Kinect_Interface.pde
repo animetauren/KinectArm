@@ -75,7 +75,7 @@ void draw(){
 
   // iterate over all the fingers found
   // and draw them as a red circle
-  noStroke();
+  noStroke();n
   fill(255, 0, 0);
   for (int i = 0; i < fingers.getNumFingers(); i++)
   {
