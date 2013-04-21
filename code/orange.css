@@ -7,11 +7,6 @@ Light Orange Skin
 	color: #FFF;
 	text-shadow: none;
 }
-::selection {
-	background: #ec8365;
-	color: #FFF;
-	text-shadow: none;
-}
 
 a:hover{
 	color: #4A5155;	
