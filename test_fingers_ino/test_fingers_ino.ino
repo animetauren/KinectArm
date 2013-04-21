@@ -13,46 +13,41 @@ uint8_t finger3Servo = 2; //the middle finger
 uint8_t finger4Servo = 3; //the penultimate finger
 uint8_t pinkyServo = 4;   // pinky servo
 
-int val, xVal, yVal;
-int sensorValue;
-int sensorPin = 0;
 
-void setup()
-{
-        Serial.begin(9600);
-        Serial.println("Ready");
-        pwm.begin();
-        pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+
+void setup() {
+
+  Serial.begin(19200);
+  Serial.println("Ready");
+  pwm.begin();
+  pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
 }
-char ch;
-void loop()
-{
-static int v = 0;
- 
- uint16_t pulseInput;
- 
+
+void loop() {
+
+  static int v = 0;
+   uint16_t pulseInput;
+
   if ( Serial.available()) {
-     ch = Wire.read();
-   
-     switch(ch) {
+    char ch = Serial.read();
+
+    switch(ch) {
       case '0'...'9':
-        v = v*10 + (int)(ch - '0');
+        v = v * 10 + ch - '0';
         break;
       case 's':
         pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
-        for(uint16_t pulseStart = 0; pulseStart < pulseInput; pulseStart++){
-          pwm.setPWM(thumbServo, 0, pulseStart);
-        }
+        pwm.setPWM(thumbServo, 0 , v);
         v = 0;
         break;
       case 'w':
-       pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
-        for(uint16_t pulseStart = 0; pulseStart < pulseInput; pulseStart++){
-          pwm.setPWM(finger2Servo, 0, pulseStart);
-        }
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger2Servo, 0 , v);
         v = 0;
-        break;
 
-      }
     }
- } 
+  }
+
+
+} 
+

@@ -3,9 +3,7 @@
 
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
-#define SERVOMAX  625 // this is the 'maximum' pulse length count (out of 4096)
-// 387 is our middle pulse length of 90
-// 
+#define SERVOMAX  600 // this is the 'maximum' pulse length count (out of 4096)
 
 uint8_t thumbServo = 0;  //thumb servo
 uint8_t finger2Servo = 1;  //the finger beneath the thumb servo
@@ -13,18 +11,16 @@ uint8_t finger3Servo = 2; //the middle finger
 uint8_t finger4Servo = 3; //the penultimate finger
 uint8_t pinkyServo = 4;   // pinky servo
 
-int val, xVal, yVal;
-int sensorValue;
-int sensorPin = 0;
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Let's Test Some Servos!");
 
-void setup()
-{
-        Serial.begin(9600);
-        Serial.println("Ready");
-        pwm.begin();
-        pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+  pwm.begin();
+  
+  pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+ 
 }
-char ch;
+
 void loop()
 {
 static int v = 0;
@@ -32,7 +28,7 @@ static int v = 0;
  uint16_t pulseInput;
  
   if ( Serial.available()) {
-     ch = Wire.read();
+     char ch = Wire.read();
    
      switch(ch) {
       case '0'...'9':

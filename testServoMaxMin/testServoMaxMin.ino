@@ -23,12 +23,16 @@ void loop() {
   uint16_t pulselengthmax;
   
   pulselengthmin = map(0, 0, 180, SERVOMIN, SERVOMAX);
-  pulselengthmax = map(180, 0, 180, SERVOMIN, SERVOMAX);
+  pulselengthmax = map(135, 0, 180, SERVOMIN, SERVOMAX);
   
- pwm.setPWM(0,0 , pulselengthmax);
+ pwm.setPWM(thumbServo, 0 , pulselengthmax); //Goes from 0 to 25 degrees
  delay(500);
- pwm.setPWM(0, pulselengthmin,0 );
+ 
+ //pwm.setPWM(thumbServo, pulselengthmin,0 );
+//delay(500);
 
-  thumbServo ++;
-  if (thumbServo > 0) thumbServo = 0;
+ pwm.setPWM(thumbServo, 0, pulselengthmin ); //goes from 25 degrees to 0 degress  
+delay(500);
+
+
 }
