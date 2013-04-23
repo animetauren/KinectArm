@@ -68,10 +68,13 @@ double pos = fingers.getFingerX(1) + fingers.getFingerY(1);
 
 if( pos > 0 && pos != lastPos){ //checks to see that position of x and y are greater thn 0 and if they changed
       // save its value
+  println(pos);
   lastPos = pos;
+  println(lastPos);
       // and save its position (both X and Y coordinates)
   fingerX = fingers.getFingerX(1); 
   fingerY = fingers.getFingerY(1);
+  
 }
 
  //draw the depth image on the screen
