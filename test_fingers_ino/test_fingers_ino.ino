@@ -29,21 +29,75 @@ void loop() {
    uint16_t pulseInput;
 
   if ( Serial.available()) {
-    char ch = Serial.read();
-
-    switch(ch) {
-      case '0'...'9':
-        v = v * 10 + ch - '0';
-        break;
-      case 's':
+    int count = Serial.read();
+int v = 90;
+    switch(count) {
+      case 3:
         pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
         pwm.setPWM(thumbServo, 0 , v);
-        v = 0;
+        delay(500);
         break;
-      case 'w':
+        
+      case 4:
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(thumbServo, 0 , v);
+        delay(500);
+        
         pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
         pwm.setPWM(finger2Servo, 0 , v);
-        v = 0;
+       delay(500);
+        break;
+        
+      case 5:
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(thumbServo, 0 , v);
+        delay(500);
+        
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger2Servo, 0 , v);
+       delay(500);
+       
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger3Servo, 0 , v);
+      break;
+      
+        case 6:
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(thumbServo, 0 , v);
+        delay(500);
+        
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger2Servo, 0 , v);
+       delay(500);
+       
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger3Servo, 0 , v);
+        delay(500);
+        
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger4Servo, 0 , v);
+      break;
+      
+        case 7:
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(thumbServo, 0 , v);
+        delay(500);
+        
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger2Servo, 0 , v);
+        delay(500);
+       
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger3Servo, 0 , v);
+        delay(500);
+        
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(finger4Servo, 0 , v);
+        delay(500); 
+        pulseInput = map(v , 0, 180, SERVOMIN, SERVOMAX);
+        pwm.setPWM(pinkyServo, 0 , v);
+        
+      break;
 
     }
   }
