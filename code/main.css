@@ -238,3 +238,8 @@ clear:both;
 .github img { vertical-align: -7px; }
 
 .buttons a img { border: 0; }
+
+.credits{
+  text-align: center;
+  line-height: 35px;
+}
