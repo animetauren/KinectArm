@@ -13,15 +13,13 @@ void setup() {
   index.attach(15); //analog pin 1
   ring.attach(16); //analog pin 2
   pinky.attach(17); //analog pin 3
-  middle.attach(18); //analog pin 
+  middle.attach(18); //analog pin 4
   Serial.begin(19200);
   Serial.println("Ready");
 
 }
 
 void loop() {
-
-  static int v = 0;
 
   if ( Serial.available()) {
     incomingNum = Serial.read();
@@ -33,19 +31,25 @@ void loop() {
         delay(15);
         ring.write(145);
         delay(15);
-        pinky.write(105);
+        pinky.write(95);
         delay(15);
         middle.write(145);
-        delay(15);
+        
         }
-        else //not open so closed
+        else{ //not open so closed
         thumb.write(0);
         index.write(0);
         ring.write(0);
         pinky.write(0);
         middle.write(0);
-
+        }
     }
+    
+    else
+   {
+   
+   }
+      
   }
 
 

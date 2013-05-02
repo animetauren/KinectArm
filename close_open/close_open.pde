@@ -78,13 +78,6 @@ depthValues[i] = currentDepthValue;
 
 fingers.update(depthValues);
 
-// iterate over all the contours found
-// and display each of them with a green line
-stroke(0,255,0);
-for (int k = 0; k < fingers.getNumContours(); k++) {
-fingers.drawContour(k);
-}
-
 // iterate over all the fingers found
 // and draw them as a red circle
 
