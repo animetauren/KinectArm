@@ -37,9 +37,10 @@ image(depthImage, 0, 0);
 
 fingers.setThreshold(threshold);
 
+
 // get the depth array from the kinect
 int[] depthValues = kinect.depthMap();
-
+fingers.update(depthValues);
 // for each row in the depth image
 
   // iterate over all the fingers found  -- Below Code
@@ -47,42 +48,34 @@ int[] depthValues = kinect.depthMap();
   noStroke();
   fill(255,0,0);
   
+  int lastAvg = 0 ;
+  int currentAvg = 0;
+  int sum = 0;
+  int n;
   for (int i = 0; i < fingers.getNumFingers(); i++) {
     PVector position = fingers.getFinger(i);
-    ellipse(position.x - 5, position.y -5, 10, 10);
+    sum += (position.x + position.y);
+    currentAvg = sum/5;
+   ellipse(position.x - 5, position.y -5, 10, 10);
   }
   
-  //We can most likely select a finger by using fingers.getFinger(i);
-
-PVector fingerOne = fingers.getFinger(1);
-PVector fingerTwo = fingers.getFinger(2);
-PVector fingerThree = fingers.getFinger(3);
-PVector fingerFour = fingers.getFinger(4);
-PVector fingerFive = fingers.getFinger(5);
-PVector lastFingerPos;
-
-
-//Sample Position Track for FingerOne
-
-double pos = fingers.getFingerX(1) + fingers.getFingerY(1);
-
-if( pos > 0 && pos != lastPos){ //checks to see that position of x and y are greater thn 0 and if they changed
-      // save its value
-  println(pos);
-  lastPos = pos;
-  println(lastPos);
-      // and save its position (both X and Y coordinates)
-  fingerX = fingers.getFingerX(1); 
-  fingerY = fingers.getFingerY(1);
-  
+  String stat; 
+if(currentAvg > 600){
+  stat = "Open";
 }
+else if (currentAvg >300 && currentAvg < 600){
+  stat = "moving in between" ;
+  }
+else 
+  stat = "closed";
+  
+  // show the threshold on the screen
 
- //draw the depth image on the screen
-image(kinect.depthImage(),0,0);
-// draw a red circle over it,
-// positioned at the X and Y coordinates
-// we saved of the closest pixel.
+//text("Threshold: " + threshold, 10, 20);
+
 fill(255,0,0);
-ellipse(closestX, closestY, 25, 25);
+text("Fingers: " + currentAvg, 10, 20 + 10);
+
+
 }
 
