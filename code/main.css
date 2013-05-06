@@ -108,8 +108,8 @@ clear:both;
 #content_wrapper {
   height: 100%;
   width: 100%;
-  min-height: 650px;
-  min-width: 900px;
+/*  min-height: 650px;
+*/  min-width: 900px;
   padding-top: 1px;
   }
 
